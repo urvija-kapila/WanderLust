@@ -1,6 +1,6 @@
 <% layout("/layouts/boilerplate") %>
 <div class="row">
-    <div class="col-8 offset-1">
+    <div class="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
         <h3>Create Your New Listing</h3> <br>
         <form method="POST" action="/listings" class="needs-validation" novalidate enctype="multipart/form-data">  <!--enctype is used to specify the encoding type for the form data, allowing file uploads. -->
             <div class="mb-3">
@@ -18,15 +18,21 @@
                 <input type="file" name="listing[image][url]" placeholder="Enter Image URL/links"  class="form-control" required>
             </div>
             <div class="row">
-                <div class="mb-3 col-md-4">
-                    <label for="price" class="form-label">Price </label>
-                    <input type="number" name="listing[price]" placeholder="Enter Price" required class="form-control"> 
-                    <div class="invalid-feedback">Please provide a valid price.</div>
+                <div class="mb-3 col-12 col-md-4">
+                    <label for="price" class="form-label">
+                        Price
+                    </label>
+                    <input type="number" name="listing[price]" placeholder="Enter Price" required class="form-control" >
+                    <div class="invalid-feedback"> Please provide a valid price.</div>
                 </div>
-                <div class="mb-3 col-md-8">
-                    <label for="image" class="form-label">Country </label>
-                    <input type="text" name="listing[country]" placeholder="Enter Country" required class="form-control">
-                    <div class="invalid-feedback">Please provide a valid country.</div>
+                <div class="mb-3 col-12 col-md-8">
+                    <label for="country" class="form-label">
+                        Country
+                    </label>
+                    <input type="text" name="listing[country]" placeholder="Enter Country" required class="form-control" >
+                    <div class="invalid-feedback">
+                        Please provide a valid country.
+                    </div>
                 </div>
             </div>
             <div class="mb-3">

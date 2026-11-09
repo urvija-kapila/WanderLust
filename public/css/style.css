@@ -4,9 +4,14 @@ body{
     min-height: 100vh;
 }
 
-.container{
-    flex:1;
-    max-width: 80% !important;
+.container {
+    flex: 1;
+    width: 100%;
+    max-width: 1400px !important;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .plus-jakarta-sans-text {
@@ -17,13 +22,108 @@ body{
   color: #222222 !important;
 }
 
-/* Navbar*/
-.navbar {
-    height: 5rem;
+/*RESPONSIVE NAVBAR*/
+.wanderlust-navbar {
+    min-height: 5rem;
+    height: auto;
+    padding: 0.75rem 2rem;
     background-color: #f8f9fa;
     margin-bottom: 2rem;
-    border-bottom: #222222;
+    border-bottom: 1px solid #eeeeee;
 }
+
+.wanderlust-navbar .navbar-collapse {
+    align-items: center;
+}
+
+/* Search area */
+.navbar-search {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+    min-width: 0;
+    border-radius: 2em;
+}
+
+.navbar-search input {
+    flex: 1;
+    min-width: 0;
+}
+
+.navbar-search button {
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+/* Right navigation links */
+.navbar-right-links {
+    margin-left: auto;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+/* TABLET AND MOBILE */
+
+@media (max-width: 991.98px) {
+
+    .wanderlust-navbar {
+        padding: 0.75rem 1rem;
+    }
+
+    .wanderlust-navbar .navbar-collapse {
+        padding-top: 1rem;
+    }
+
+    .wanderlust-navbar .navbar-nav {
+        align-items: stretch;
+        width: 100%;
+    }
+
+    .wanderlust-navbar .nav-link {
+        padding: 0.75rem 0;
+    }
+
+    .navbar-search {
+        max-width: 100%;
+        margin: 1rem 0;
+    }
+
+    .navbar-right-links {
+        margin-left: 0;
+        gap: 0;
+    }
+}
+
+/* SMALL MOBILE DEVICES*/
+
+@media (max-width: 575.98px) {
+
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .wanderlust-navbar {
+        margin-bottom: 1rem;
+    }
+
+    .navbar-search {
+        flex-wrap: nowrap;
+    }
+
+    .navbar-search input {
+        font-size: 0.85rem;
+    }
+
+    .navbar-search button {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.85rem;
+    }
+}
+
 
 .fa-compass {
     font-size: 2rem;
@@ -82,6 +182,7 @@ footer {
 .listing-card{
     border: none !important;
     margin-bottom: 2rem;
+    width: 100%;
 }
 
 .card-img-top{
@@ -96,6 +197,7 @@ footer {
 
 .card-text p{
     font-weight:400 !important;
+    overflow-wrap: anywhere;
 }
 
 .listing-link {
@@ -125,22 +227,160 @@ footer {
     border: none !important;
 }
 
-/* show page */
-.show-img{
+/* ===================================
+   RESPONSIVE SIGNUP, LOGIN,
+   NEW, EDIT AND SHOW PAGES
+=================================== */
+
+/* Prevent long headings and text from overflowing */
+h1, h3, h4, h5, p {
+    overflow-wrap: break-word;
+}
+
+/* All form controls fit their parent container */
+.form-control {
+    max-width: 100%;
+}
+
+/* ===================================
+   EDIT LISTING PAGE
+=================================== */
+
+/* Preserve the original current-image dimensions */
+.edit-listing-img {
+    max-width: 200px;
+    max-height: 200px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+/* ===================================
+   SHOW LISTING PAGE
+=================================== */
+
+/* Listing detail image */
+.show-img {
+    width: 100%;
     height: 45vh;
+    object-fit: cover;
 }
 
-.btns{
-    display:flex;
-}
-
-.show-card{
-    padding-left:0;
+/* Show listing card */
+.show-card {
+    width: 100%;
+    height: auto !important;
+    min-height: 0;
+    padding-left: 0;
     padding-right: 0;
+    margin-bottom: 1.5rem;
 }
 
-/* map */
-#map { 
+/* Edit and Delete buttons */
+.btns {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Prevent the Delete form from adding spacing */
+.btns form {
+    margin: 0;
+}
+
+/* Review cards */
+.review-card {
+    width: 100%;
+    padding: 1rem;
+}
+
+.review-card .card-body {
+    padding: 0 !important;
+}
+
+/* Delete button inside review */
+.review-delete-form {
+    margin-top: 1rem;
+}
+
+/* Map responsiveness */
+#map {
+    width: 100%;
+    max-width: 100%;
     height: 400px;
-    width: 80vh; 
+}
+
+/* ===================================
+   TABLET AND SMALL LAPTOP
+=================================== */
+
+@media (max-width: 991.98px) {
+
+    /* Make listing images adapt to screen */
+    .show-img {
+        height: 35vh;
+        min-height: 250px;
+    }
+
+    /* Keep map inside its parent */
+    #map {
+        width: 100%;
+        height: 350px;
+    }
+}
+
+/* ===================================
+   MOBILE DEVICES
+=================================== */
+
+@media (max-width: 575.98px) {
+
+    /* Override the old 80% container width */
+    .container {
+        width: 100%;
+        max-width: 100% !important;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    /* Responsive heading sizes */
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    h4 {
+        font-size: 1.25rem;
+    }
+
+    /* Prevent file inputs from overflowing */
+    input[type="file"] {
+        width: 100%;
+        max-width: 100%;
+        font-size: 0.85rem;
+    }
+
+    /* Show listing image */
+    .show-img {
+        height: 250px;
+        min-height: 0;
+        object-fit: cover;
+    }
+
+    /* Keep action buttons aligned */
+    .btns {
+        gap: 0.75rem;
+    }
+
+    /* Map height on mobile */
+    #map {
+        width: 100%;
+        height: 280px;
+    }
 }

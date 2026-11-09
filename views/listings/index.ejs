@@ -4,124 +4,218 @@
 <body class="plus-jakarta-sans-text"></body>
 
 <style>
-    /* Main filter bar - single horizontal row */
+/* ===================================
+   MAIN FILTER BAR
+=================================== */
+#filters {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 1.5rem;
+    width: 100%;
+    min-width: 0;
+    margin-bottom: 1.5rem;
+}
+
+.filter-container {
+    display: flex;
+    align-items: center;
+    flex: 1 1 0;
+    min-width: 0;
+    gap: 0.5rem;
+}
+
+.filter-scroll {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+/* Hide scrollbar in Chrome */
+.filter-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+/* ===================================
+   INDIVIDUAL FILTERS
+=================================== */
+
+.filter {
+    text-align: center;
+    opacity: 0.7;
+    text-decoration: none;
+    color: #222222;
+    padding: 0.5rem;
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.filter:hover {
+    opacity: 1;
+    color: #222222;
+}
+
+.filter i {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.filter p {
+    font-size: 0.7rem;
+    margin-bottom: 0;
+}
+
+/* Active category */
+.filter.active {
+    opacity: 1;
+    border-bottom: 2px solid #fe424d;
+    color: #fe424d;
+}
+/* ===================================
+   ARROW BUTTONS
+=================================== */
+.scroll-btn {
+    border: 1px solid #b0b0b0;
+    border-radius: 50%;
+    background: white;
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.scroll-btn:hover {
+    background: #f1f1f1;
+}
+
+.scroll-btn:disabled {
+    opacity: 0.3;
+    cursor: default;
+}
+
+/* ===================================
+   TAX TOGGLE
+=================================== */
+
+.tax-toggle {
+    border: 1px solid black;
+    border-radius: 1rem;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    margin-left: 0;
+    white-space: nowrap;
+}
+
+/* Full label on desktop and laptop */
+.tax-label-full {
+    display: inline;
+}
+
+/* Short label hidden by default */
+.tax-label-short {
+    display: none;
+}
+
+.tax-info {
+    display: none;
+}
+
+/* ===================================
+   TABLET AND MOBILE
+   Below 992px
+=================================== */
+
+@media (max-width: 991.98px) {
+
     #filters {
-        display: flex;
-        align-items: center;
         flex-wrap: nowrap;
-        gap: 1.5rem;
-        width: 100%;
-        margin-bottom: 1.5rem;
+        gap: 0.75rem;
     }
 
-    /* Scrollable category section */
     .filter-container {
-        display: flex;
-        align-items: center;
-        flex: 1;
+        flex: 1 1 0;
+        min-width: 0;
+    }
+
+    .filter-scroll {
+        min-width: 0;
+        gap: 1.5rem;
+    }
+
+    .tax-label-full {
+        display: none;
+    }
+
+    .tax-label-short {
+        display: inline;
+    }
+
+    .tax-toggle {
+        flex-shrink: 0;
+        padding: 1rem;
+    }
+}
+
+/* ===================================
+   SMALL MOBILE SCREENS
+   Below 576px
+=================================== */
+
+@media (max-width: 575.98px) {
+
+    #filters {
+        gap: 0.5rem;
+    }
+
+    .filter-container {
+        flex: 1 1 0;
         min-width: 0;
         gap: 0.5rem;
     }
 
-    /* Categories scroll horizontally */
     .filter-scroll {
-        display: flex;
-        align-items: center;
-        gap: 1.5rem;
-        overflow-x: auto;
-        scroll-behavior: smooth;
-        scrollbar-width: none;
-        flex: 1;
         min-width: 0;
+        gap: 1.5rem;
     }
 
-    /* Hide scrollbar in Chrome */
-    .filter-scroll::-webkit-scrollbar {
-        display: none;
-    }
-
-    /* Individual filter */
+    /* Keep original icon sizes and spacing */
     .filter {
-        text-align: center;
-        opacity: 0.7;
-        text-decoration: none;
-        color: #222222;
-        padding: 0.5rem;
         flex-shrink: 0;
-        white-space: nowrap;
     }
 
-    .filter:hover {
-        opacity: 1;
-        color: #222222;
-    }
-
-    .filter i {
-        font-size: 1.3rem;
-        margin-bottom: 0.5rem;
-    }
-
-    .filter p {
-        font-size: 0.7rem;
-        margin-bottom: 0;
-    }
-
-    /* Active category */
-    .filter.active {
-        opacity: 1;
-        border-bottom: 2px solid #fe424d;
-        color: #fe424d;
-    }
-
-    /* Arrow buttons */
+    /* Keep arrow button dimensions unchanged */
     .scroll-btn {
-        border: 1px solid #b0b0b0;
-        border-radius: 50%;
-        background: white;
-        width: 32px;
-        height: 32px;
         flex-shrink: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
     }
 
-    .scroll-btn:hover {
-        background: #f1f1f1;
-    }
-
-    .scroll-btn:disabled {
-        opacity: 0.3;
-        cursor: default;
-    }
-
-    /* Tax toggle stays on the right */
+    /* Compact tax toggle only on small screens */
     .tax-toggle {
-        border: 1px solid black;
-        border-radius: 1rem;
-        padding: 1rem;
-        display: flex;
-        align-items: center;
+        padding: 0.65rem;
         flex-shrink: 0;
-        margin-left: 0;
-        white-space: nowrap;
     }
+}
 
-    .tax-info {
-        display: none;
-    }
 </style>
 
 <!-- Main Filter Bar -->
 <div id="filters">
     <!-- Scrollable Filters Section -->
     <div class="filter-container">
-        <!-- Left Arrow -->
+        
         <button type="button" class="scroll-btn" id="scrollLeft" aria-label="Scroll filters left">
             <i class="fa-solid fa-chevron-left"></i>
         </button>
-        <!-- Category Icons -->
+        
         <div class="filter-scroll" id="filterScroll">
             <!-- All Filter -->
             <a href="/listings" class="filter <%= !selectedCategory ? 'active' : '' %>">
@@ -142,16 +236,19 @@
             <% }); %>
             
         </div>
-        <!-- Right Arrow -->
+        
         <button type="button" class="scroll-btn" id="scrollRight" aria-label="Scroll filters right">
             <i class="fa-solid fa-chevron-right"></i>
         </button>
     </div>
-    <!-- Fixed Tax Toggle -->
+    
     <div class="tax-toggle">
         <div class="custom-control custom-switch">
             <input type="checkbox" class="custom-control-input" id="customSwitch1">
-            <label class="custom-control-label" for="customSwitch1" > Display total after taxes</label>
+            <label class="custom-control-label" for="customSwitch1">
+                <span class="tax-label-full">Display total after taxes</span>
+                <span class="tax-label-short">Taxes</span>
+            </label>
         </div>
     </div>
 </div>
@@ -201,23 +298,26 @@
 
 <% } else { %>
     <!-- Existing Listing Cards -->
-    <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-1 mt-3">
+    <div class="row mt-3">
         <% for (let listing of allListings) { %>
-            <a href="/listings/<%= listing._id %>" class="listing-link">
-                <div class="card col listing-card" style="width: 20rem;">
-                    <img src="<%= listing.image.url %>" class="card-img-top" alt="listing_image" style="height: 15rem" >
-                    <div class="card-img-overlay"></div>
-                    <div class="card-body">
-                        <p class="card-text">
-                            <b><%= listing.title %></b> <br>
-                            &#8377; <%= listing.price.toLocaleString("en-IN") %> for 1 night
-                            <i class="tax-info">
-                                &nbsp; +18% GST
-                            </i>
-                        </p>
+            <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4">
+                <a href="/listings/<%= listing._id %>" class="listing-link">
+                    <div class="card listing-card w-100">
+                        <img src="<%= listing.image.url %>" class="card-img-top" alt="<%= listing.title %>" style="height: 15rem;">
+                        <div class="card-img-overlay"></div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                <b><%= listing.title %></b>
+                                <br>
+                                &#8377; <%= listing.price.toLocaleString("en-IN") %> for 1 night
+                                <i class="tax-info">
+                                    &nbsp; +18% GST
+                                </i>
+                            </p>
+                        </div>
                     </div>
-                </div>
-            </a>
+                </a>
+            </div>
         <% } %>
     </div>
 <% } %>
