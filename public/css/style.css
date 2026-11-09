@@ -1,0 +1,146 @@
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container{
+    flex:1;
+    max-width: 80% !important;
+}
+
+.plus-jakarta-sans-text {
+  font-family: "Plus Jakarta Sans", sans-serif !important;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  color: #222222 !important;
+}
+
+/* Navbar*/
+.navbar {
+    height: 5rem;
+    background-color: #f8f9fa;
+    margin-bottom: 2rem;
+    border-bottom: #222222;
+}
+
+.fa-compass {
+    font-size: 2rem;
+    color: #fe424d;
+}
+
+.nav-link{
+    color: #222222 !important;
+}
+
+/* Footer*/
+footer {
+    background-color: #f7f7f7;
+    padding: 0 3rem;
+}
+
+.f-info-links a{
+    text-decoration: none;
+    color: #222222;
+}
+
+.f-info-links a:hover{
+    text-decoration: underline;
+    color: #222222;
+}
+
+.f-in {
+    min-height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #dddddd;
+    gap: 1rem;
+}
+
+.fleft{
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.f-info-socials {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.f-info-socials i{
+  margin-left: 10px;
+  color: #222;
+  font-size: 18px; 
+}
+
+/* Cards*/
+.listing-card{
+    border: none !important;
+    margin-bottom: 2rem;
+}
+
+.card-img-top{
+    border-radius:1rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+}
+
+.card-body{
+    padding: 0 !important;
+}
+
+.card-text p{
+    font-weight:400 !important;
+}
+
+.listing-link {
+    text-decoration:none !important;
+    color: #222222 !important;
+}
+
+/* card effect */
+.card-img-overlay{
+    opacity: 0;
+}
+
+.card-img-overlay:hover{
+    opacity: 0.2;
+    background-color:white ;
+}
+
+/* new page */
+.create-btn{
+    background-color: #fe424d !important;
+    border: none !important;
+}
+
+/* edit page */
+.update-btn{
+    background-color: #fe424d !important;
+    border: none !important;
+}
+
+/* show page */
+.show-img{
+    height: 45vh;
+}
+
+.btns{
+    display:flex;
+}
+
+.show-card{
+    padding-left:0;
+    padding-right: 0;
+}
+
+/* map */
+#map { 
+    height: 400px;
+    width: 80vh; 
+}

@@ -1,0 +1,60 @@
+<% layout("/layouts/boilerplate") %>
+<div class="row">
+    <div class="col-8 offset-1">
+        <h3>Create Your New Listing</h3> <br>
+        <form method="POST" action="/listings" class="needs-validation" novalidate enctype="multipart/form-data">  <!--enctype is used to specify the encoding type for the form data, allowing file uploads. -->
+            <div class="mb-3">
+                <label for="title" class="form-label">Title </label>
+                <input type="text" name="listing[title]" placeholder="Add a catchy title for your property" required class="form-control"> 
+                <div class="valid-feedback">Title looks good!</div>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Description </label>
+                <textarea name="listing[description]" placeholder="Enter Description" required class="form-control"></textarea> 
+                <div class="invalid-feedback">Please enter a short description.</div>
+            </div>
+            <div class="mb-3">
+                <label for="image" class="form-label">Upload Listing Image </label>
+                <input type="file" name="listing[image][url]" placeholder="Enter Image URL/links"  class="form-control" required>
+            </div>
+            <div class="row">
+                <div class="mb-3 col-md-4">
+                    <label for="price" class="form-label">Price </label>
+                    <input type="number" name="listing[price]" placeholder="Enter Price" required class="form-control"> 
+                    <div class="invalid-feedback">Please provide a valid price.</div>
+                </div>
+                <div class="mb-3 col-md-8">
+                    <label for="image" class="form-label">Country </label>
+                    <input type="text" name="listing[country]" placeholder="Enter Country" required class="form-control">
+                    <div class="invalid-feedback">Please provide a valid country.</div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="location" class="form-label">Location </label>
+                <input type="text" name="listing[location]" placeholder="City, State" required class="form-control">
+                <div class="invalid-feedback">Please provide a valid location.</div>
+            </div>
+            
+            <div class="mb-3">
+                <label for="category" class="form-label">Select the category your property belongs to</label>
+                <select name="listing[category]" id="category" class="form-control" required>
+                    <option value="" disabled selected>
+                        Choose a category
+                    </option>
+                    <% categories.forEach(category => { %>
+                        <option value="<%= category.name %>">
+                            <%= category.name %>
+                        </option>
+                    <% }); %>
+                </select>
+                <div class="invalid-feedback">
+                    Please select a category for your property.
+                </div>
+            </div>
+            
+            <button class="btn btn-dark create-btn">Create now</button><br><br>
+        </form>
+    </div>
+</div>
+    
+
