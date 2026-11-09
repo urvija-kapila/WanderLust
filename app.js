@@ -64,9 +64,6 @@ const sessionOptions = {
     }
 };
 
-// app.get("/", (req, res) => {
-//     res.send("Hi, I am root");
-// });
 
 app.use(session(sessionOptions));
 app.use(flash());    //flash should always come before routes
@@ -85,14 +82,9 @@ app.use((req,res,next) => { //midleware for flash messages, so that it can be us
     next();
 });
 
-// app.get("/demouser", async (req,res) => {
-//     let fakeUser = new User({
-//         email:"student@gmail.com",
-//         username:"delta-student",
-//     });
-//     let registeredUser = await User.register(fakeUser, "student123"); //register method for registering the user, it takes the user object and the password as arguments, and it hashes the password and saves the user to the database
-//     res.send(registeredUser);
-// });
+app.get("/", (req, res) => {
+    res.redirect("/listings");
+});
 
 app.use("/listings", listingRouter );   //parent route
 app.use("/listings/:id/reviews", reviewRouter);  //parent route
